@@ -41,26 +41,18 @@ def posTagger():
 					probability += log(tokenTags[sTokens[index]][tag]/tagCounter[tag]) 
 				if tagTags[currentCombination[index-1]][tag] !=0:
 					probability += log(tagTags[currentCombination[index-1]][tag]/tagCounter[currentCombination[index-1]]) 
-			elif index==0:
-				if tagTags['.'][tag]!=0:
-					probability+=log(tagTags['.'][tag]/tagCounter['.'])
-			elif index==len(currentCombination)-1:
-				if tagTags[tag]['.']!=0:
-					probability+=log(tagTags[tag]['.']/tagCounter[tag])
+			#elif index==0:
+			#	if tagTags['.'][tag]!=0:
+			#		probability+=log(tagTags['.'][tag]/tagCounter['.'])
+			#elif index==len(currentCombination)-1:
+			#	if tagTags[tag]['.']!=0:
+			#		probability+=log(tagTags[tag]['.']/tagCounter[tag])
 		if probability > maxProbability:
 			maxProbability=probability
 			bestCombination=currentCombination
-		print(currentCombination)
-		print(probability)
+		#print(currentCombination)
+		#print(probability)
 	print(maxProbability)
 	print(bestCombination)
 
-
 posTagger()
-
-
-
-
-
-
-
